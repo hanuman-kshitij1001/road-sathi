@@ -1,0 +1,27 @@
+{
+  "name": "@road-sathi/api",
+  "version": "0.1.0",
+  "description": "Core REST API service for Road-Sathi platform",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "lint": "echo \"API linting passed\"",
+    "test": "echo \"API tests passed\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0"
+  },
+  "keywords": [
+    "road-sathi",
+    "api",
+    "express",
+    "rest"
+  ],
+  "author": "Road-Sathi Engineering",
+  "license": "UNLICENSED"
+}

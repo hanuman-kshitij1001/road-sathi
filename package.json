@@ -1,0 +1,32 @@
+{
+  "name": "road-sathi",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Production-grade roadside emergency assistance platform monorepo",
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -p \"[{name}]\" -n \"WEB,PROVIDER,ADMIN,API,AI\" -c \"cyan,magenta,yellow,blue,green\" \"npm run dev:web\" \"npm run dev:provider\" \"npm run dev:admin\" \"npm run dev:api\" \"npm run dev:ai\"",
+    "dev:web": "npm run dev -w @road-sathi/web",
+    "dev:provider": "npm run dev -w @road-sathi/provider",
+    "dev:admin": "npm run dev -w @road-sathi/admin",
+    "dev:api": "npm run dev -w @road-sathi/api",
+    "dev:ai": "npm run dev -w @road-sathi/ai",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "author": "Road-Sathi Engineering",
+  "license": "UNLICENSED"
+}

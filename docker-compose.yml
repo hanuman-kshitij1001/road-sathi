@@ -1,0 +1,90 @@
+services:
+  # ----------------------------------------------------------------------------
+  # Core Backend API
+  # ----------------------------------------------------------------------------
+  api:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/api.Dockerfile
+    container_name: road-sathi-api
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+    volumes:
+      - ./services/api:/app/services/api
+      - /app/services/api/node_modules
+    networks:
+      - road-sathi-network
+
+  # ----------------------------------------------------------------------------
+  # AI Microservice
+  # ----------------------------------------------------------------------------
+  ai:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/ai.Dockerfile
+    container_name: road-sathi-ai
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=development
+      - AI_SERVICE_PORT=5001
+    volumes:
+      - ./services/ai:/app/services/ai
+      - /app/services/ai/node_modules
+    networks:
+      - road-sathi-network
+
+  # ----------------------------------------------------------------------------
+  # Web Application (User Client)
+  # ----------------------------------------------------------------------------
+  web:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/web.Dockerfile
+    container_name: road-sathi-web
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/web:/app/apps/web
+      - /app/apps/web/node_modules
+    networks:
+      - road-sathi-network
+
+  # ----------------------------------------------------------------------------
+  # Provider Portal (Mechanic/Partner Client)
+  # ----------------------------------------------------------------------------
+  provider:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/provider.Dockerfile
+    container_name: road-sathi-provider
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./apps/provider:/app/apps/provider
+      - /app/apps/provider/node_modules
+    networks:
+      - road-sathi-network
+
+  # ----------------------------------------------------------------------------
+  # Admin Dashboard (Backoffice Client)
+  # ----------------------------------------------------------------------------
+  admin:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/admin.Dockerfile
+    container_name: road-sathi-admin
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./apps/admin:/app/apps/admin
+      - /app/apps/admin/node_modules
+    networks:
+      - road-sathi-network
+
+networks:
+  road-sathi-network:
+    driver: bridge
