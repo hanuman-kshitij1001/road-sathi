@@ -5,7 +5,7 @@
 
 ## 1. Project Purpose
 
-When a vehicle breaks down on a highway, city road, or remote location, finding trusted and immediate mechanical assistance is stressful, unpredictable, and often unsafe. **Road-Sathi** solves this critical problem by providing a real-time, location-aware roadside emergency response network connecting stranded motorists with vetted service partners (garages, mobile mechanics, towing operators, and emergency assistance specialists).
+When a vehicle breaks down on a highway, city road, or remote location, finding trusted and immediate mechanical assistance is stressful, unpredictable, and often unsafe. **Road-Sathi** solves this critical problem by providing a real-time, location-aware roadside emergency response network connecting stranded motorists with vetted service partners (garages, mobile mechanics, towing operators, and emergency assistance specialists)...
 
 ---
 
